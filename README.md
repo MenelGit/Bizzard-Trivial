@@ -1,1 +1,1 @@
-# Bizzard-Trivial
+# Blizzard-Trivial
