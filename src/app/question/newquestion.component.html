@@ -1,0 +1,56 @@
+<div class="container question-title">
+    <h1>Crear Pregunta</h1>
+</div>
+<div class="container">
+    <form [formGroup]="questionForm">
+        <div class="form-row">
+            <div class="form-group col-md-8">
+                <label for="question">Pregunta:</label>
+                <input type="text" class="form-control" id="question" placeholder="Introduce el enunciado de la pregunta" [formControl]="questionForm.controls['question']"
+                    [(ngModel)]="question.question">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="category">Categoría:</label>
+                <select id="category" class="form-control" [formControl]="questionForm.controls['category']" [(ngModel)]="question.category.id">
+                    <option *ngFor="let item of dropdownCategories" value={{item.id}}>{{item.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="correct">Respuesta correcta:</label>
+                <input type="text" class="form-control" id="correct" placeholder="Introduce la respuesta correcta" [formControl]="questionForm.controls['correct']"
+                [(ngModel)]="question.correctAnswer">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="wrong1">Primera respuesta errónea:</label>
+                <input type="text" class="form-control" id="wrong1" placeholder="Introduce una respuesta errónea" [formControl]="questionForm.controls['wrong1']"
+                [(ngModel)]="question.wrongAnswer1">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="wrong2">Segunda respuesta errónea:</label>
+                <input type="text" class="form-control" id="wrong2" placeholder="Introduce una respuesta errónea" [formControl]="questionForm.controls['wrong2']"
+                [(ngModel)]="question.wrongAnswer2">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="wrong3">Tercera respuesta errónea:</label>
+                <input type="text" class="form-control" id="wrong3" placeholder="Introduce una respuesta errónea" [formControl]="questionForm.controls['wrong3']"
+                [(ngModel)]="question.wrongAnswer3">
+            </div>
+        </div>
+    </form>
+    <button class="btn btn-primary question-button float-right" (click)="submit()" [disabled]="!questionForm.valid">
+        <i class="fa fa-bath" aria-hidden="true"></i>
+        <span>Aceptar</span>
+    </button>
+    <button class="btn btn-primary question-button float-right mr-2" (click)="resetForm()">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <span>Limpiar</span>
+    </button>
+    <button class="btn btn-primary question-button float-left" (click)="return()">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <span>Volver al menú</span>
+    </button>
+</div>
