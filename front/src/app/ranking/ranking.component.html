@@ -1,0 +1,15 @@
+<div class="container ranking-title">
+    <h1>Game rankings</h1>       
+</div>
+<div>
+    <ul class= "rank_list">
+        <li *ngFor="let player of loadRanking()">
+          {{ player.name }} --
+          {{ player.score }}
+        </li>
+    </ul> 
+</div>
+<button class="btn btn-primary question-button float-left" (click)="return()">
+    <i class="fa fa-search" aria-hidden="true"></i>
+    <span>Volver al menú</span>
+</button>
