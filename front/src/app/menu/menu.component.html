@@ -2,6 +2,9 @@
 	<li>
 		<a href="#">Nueva Partida</a>
 	</li>
+	<li *ngIf="hide()">
+        <a href="#">Continuar Partida</a>
+    </li>
 	<li>
 		<a routerLink="/newquestion" routerLinkActive="active-link">Crear Pregunta</a>
 	</li>
