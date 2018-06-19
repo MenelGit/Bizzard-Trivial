@@ -16,28 +16,37 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name="questions")
-public class QuestionEntity implements Serializable {
+@Table(name="games")
+public class GameEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-	@Column(name="question_code")
-	private Integer questionCode;
+	@Column(name="game_code")
+	private Integer gameCode;
 
-	@Column(name="text")
-	private String text;
-
-	@OneToMany(mappedBy="question")
-	private List<AnswerEntity> answers;
+	@Column(name="current_user")
+	private Integer currentUser;
 
 	@ManyToOne
-	@JoinColumn(name="category_code")
-	private BlizzardGameEntity category;
+	@JoinColumn(name="cod_winner")
+	private UserEntity user1;
 
-	@OneToMany(mappedBy="question")
+	@ManyToOne
+	@JoinColumn(name="cod_loser")
+	private UserEntity user2;
+
+	@ManyToOne
+	@JoinColumn(name="cod_user_1")
+	private UserEntity user3;
+
+	@ManyToOne
+	@JoinColumn(name="cod_user_2")
+	private UserEntity user4;
+
+	@OneToMany(mappedBy="game")
 	private List<QuestionsPerGameEntity> questionsPerGames;
 
 }

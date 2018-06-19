@@ -13,28 +13,26 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import lombok.Data;
-
 @Entity
-@Table(name = "tanswer")
-@Data
+@Table(name="answers")
 public class AnswerEntity implements Serializable {
 
-	private static final long serialVersionUID = -7482115211330566187L;
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "cod_answer")
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-	private Integer id;
+	@Column(name="answer_code")
+	private Integer answerCode;
 
-	@ManyToOne
-	@JoinColumn(name = "cod_question")
-	private QuestionEntity question;
+	@Column(name="is_correct")
+	private String isCorrect;
 
-	@Column(name = "text")
+	@Column(name="text")
 	private String text;
 
-	@Column(name = "correct")
-	private Boolean isCorrect;
+	@ManyToOne
+	@JoinColumn(name="question_code")
+	private QuestionEntity question;
+
 }

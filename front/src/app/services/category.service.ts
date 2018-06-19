@@ -2,25 +2,21 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { Category } from '../models/category';
+import { BaseService } from './base.service';
 
 @Injectable()
-export class CategoryService {
+export class CategoryService extends BaseService {
 
     categories: Category[] = [];
 
-    constructor() {
-        
+    constructor(private http: Http) {
+        super();
     }
 
-    getAll() {
-        this.categories = [
-            { id: 1, description: 'Warcraft' },
-            { id: 2, description: 'Starcraft' },
-            { id: 3, description: 'Diablo' },
-            { id: 4, description: 'Hearthstone' },
-            { id: 5, description: 'Heroes of the Storm' },
-            { id: 6, description: 'Overwatch' }
-          ];
-        return this.categories;        
+    getAll(): any {
+        return this.http.get("http://localhost:37000/categories").toPromise()
+            .then((res) => {
+                this.extractData(res);
+            }).catch(() => { });
     }
 }
