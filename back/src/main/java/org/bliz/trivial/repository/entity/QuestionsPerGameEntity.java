@@ -17,11 +17,11 @@ public class QuestionsPerGameEntity implements Serializable {
 	@EmbeddedId
 	private QuestionsPerGameEntityPK id;
 
-	@Column(name = "is_correct")
-	private Boolean isCorrect;
+	@Column(name = "is_correct", columnDefinition="BIT")
+	private Integer isCorrect;
 
-	@Column(name = "is_played")
-	private Boolean isPlayed;
+	@Column(name = "is_played", columnDefinition="BIT")
+	private Integer isPlayed;
 
 	@ManyToOne
 	@JoinColumn(name = "game_code", insertable = false, updatable = false)

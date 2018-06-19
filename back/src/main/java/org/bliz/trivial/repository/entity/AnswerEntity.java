@@ -25,8 +25,8 @@ public class AnswerEntity implements Serializable {
 	@Column(name="answer_code")
 	private Integer answerCode;
 
-	@Column(name="is_correct")
-	private String isCorrect;
+	@Column(name="is_correct", columnDefinition="BIT")
+	private Integer isCorrect;
 
 	@Column(name="text")
 	private String text;
