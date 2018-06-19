@@ -18,6 +18,8 @@ export class NewQuestionComponent {
     questionForm: FormGroup;
     question: Question;
     dropdownCategories: Category[] = [];
+    responseMessage: string = null;
+    isErrorMsg: boolean = false;
 
     constructor(private router: Router, private questionService: QuestionService, private categoryService: CategoryService) {
 
@@ -26,12 +28,12 @@ export class NewQuestionComponent {
     ngOnInit() {
         this.newQuestion();
         this.questionForm = new FormGroup({
-            question: new FormControl('',[Validators.required]),
-            category: new FormControl('',[Validators.required]),
-            correct: new FormControl('',[Validators.required]),
-            wrong1: new FormControl('',[Validators.required]),
-            wrong2: new FormControl('',[Validators.required]),
-            wrong3: new FormControl('',[Validators.required])
+            question: new FormControl('', [Validators.required]),
+            category: new FormControl('', [Validators.required]),
+            correct: new FormControl('', [Validators.required]),
+            wrong1: new FormControl('', [Validators.required]),
+            wrong2: new FormControl('', [Validators.required]),
+            wrong3: new FormControl('', [Validators.required])
         });
         this.loadCategories();
     }
@@ -43,7 +45,10 @@ export class NewQuestionComponent {
     loadCategories() {
         this.categoryService.getAll().then((res) => {
             this.dropdownCategories = res;
-        })
+        }).catch((error) => {
+            this.responseMessage = error;
+            this.isErrorMsg = true;
+        });
     }
 
     submit() {
@@ -56,5 +61,10 @@ export class NewQuestionComponent {
 
     return() {
         this.router.navigate(["/menu"]);
+    }
+
+    handleResponseMsgUpdated(event) {
+        this.responseMessage = event.msg;
+        this.isErrorMsg = event.error;
     }
 }

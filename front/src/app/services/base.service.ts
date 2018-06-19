@@ -22,4 +22,8 @@ export class BaseService {
             return res.json().content;
         }
     }
+
+    public handleError(error: any) {
+        return new Error(error.json().message);
+    }
 }

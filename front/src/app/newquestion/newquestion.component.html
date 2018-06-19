@@ -1,3 +1,15 @@
+<div class="container-fluid">
+  <div [hidden]='responseMessage==null'>
+    <div [hidden]="isErrorMsg" class="alert alert-success success_box">
+      <span>{{ responseMessage }}</span>
+      <button type="button" class="close" (click)="handleResponseMsgUpdated($event)">&times;</button>
+    </div>
+    <div [hidden]="!isErrorMsg" class="alert alert-danger error_box">
+      <span>{{ responseMessage }}</span>
+      <button type="button" class="close" (click)="handleResponseMsgUpdated($event)">&times;</button>
+    </div>
+  </div>
+</div>
 <div class="container question-title">
   <h1>Crear Pregunta</h1>
 </div>
