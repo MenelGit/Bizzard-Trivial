@@ -13,8 +13,15 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
 @Table(name="answers")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class AnswerEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;

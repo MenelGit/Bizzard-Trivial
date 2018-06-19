@@ -14,9 +14,9 @@ export class CategoryService extends BaseService {
     }
 
     getAll(): any {
-        return this.http.get("http://localhost:37000/categories").toPromise()
-            .then((res) => {
-                this.extractData(res);
-            }).catch(() => { });
+        return this.http.get("http://localhost:37000/categories")
+            .toPromise()
+            .then((res) => { return this.extractData(res);})
+            .catch(() => { });
     }
 }

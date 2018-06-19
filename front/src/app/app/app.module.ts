@@ -10,13 +10,25 @@ import { RankingComponent } from '../ranking/ranking.component';
 import { SocialComponent } from '../social/social.component';
 import { WaitingTurnComponent } from '../waitingturn/waitingturn.component'
 import { QuestionComponent } from '../question/question.component';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
-    AppComponent, MenuComponent, MainComponent, NewQuestionComponent, RankingComponent, SocialComponent, WaitingTurnComponent, QuestionComponent
+    AppComponent,
+    MenuComponent,
+    MainComponent,
+    NewQuestionComponent,
+    RankingComponent,
+    SocialComponent,
+    WaitingTurnComponent,
+    QuestionComponent
   ],
   imports: [
-    BrowserModule, routing, FormsModule, ReactiveFormsModule
+    BrowserModule,
+    routing,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

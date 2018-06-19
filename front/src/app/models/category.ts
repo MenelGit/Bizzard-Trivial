@@ -1,10 +1,10 @@
 export class Category {
 
-    id: number;
+    codBlizzardGame: number;
     description: string;
 
-    constructor(id: number, description: string) {
-        this.id = id;
+    constructor(codBlizzardGame: number, description: string) {
+        this.codBlizzardGame = codBlizzardGame;
         this.description = description;
     }
 }

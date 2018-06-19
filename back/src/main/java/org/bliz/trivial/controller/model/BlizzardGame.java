@@ -11,6 +11,6 @@ public class BlizzardGame implements Serializable {
 
 	private Integer codBlizzardGame;
 
-	private String name;
+	private String description;
 
 }

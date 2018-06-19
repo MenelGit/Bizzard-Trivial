@@ -41,7 +41,6 @@ export class NewQuestionComponent {
     }
 
     loadCategories() {
-        // this.dropdownCategories = this.categoryService.getAll();
         this.categoryService.getAll().then((res) => {
             this.dropdownCategories = res;
         })
