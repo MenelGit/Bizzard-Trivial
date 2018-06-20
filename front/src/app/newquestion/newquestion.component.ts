@@ -5,6 +5,7 @@ import { Question } from '../models/question';
 import { Category } from '../models/category';
 import { CategoryService } from '../services/category.service';
 import { QuestionService } from '../services/question.service';
+import { Answer } from '../models/answer';
 
 @Component({
     selector: 'newquestion',
@@ -39,7 +40,7 @@ export class NewQuestionComponent {
     }
 
     newQuestion() {
-        this.question = new Question(null, new Category(null, null), null, null, null, null);
+        this.question = new Question(null, null, new Category(null, null), [new Answer(null, null, null, new Question(null, null, null, null, null))], null);
     }
 
     loadCategories() {
@@ -52,7 +53,19 @@ export class NewQuestionComponent {
     }
 
     submit() {
-        this.questionService.create(this.question);
+        this.question.text = this.questionForm.value.question;
+        this.question.category.codBlizzardGame = this.questionForm.value.category;
+        let answers: Answer[] = [];
+        answers.push(new Answer(null, 1, this.questionForm.value.correct, null));
+        answers.push(new Answer(null, 0, this.questionForm.value.wrong1, null));
+        answers.push(new Answer(null, 0, this.questionForm.value.wrong2, null));
+        answers.push(new Answer(null, 0, this.questionForm.value.wrong3, null));
+        this.question.answers = answers;
+        this.questionService.create(this.question).then((res) => {
+            this.responseMessage = "Pregunta creada con éxito";
+        }).catch((error) => {
+            this.responseMessage = error;
+        });
     }
 
     resetForm() {

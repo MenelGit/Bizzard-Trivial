@@ -1,11 +1,13 @@
 package org.bliz.trivial.controller;
 
-import org.aspectj.weaver.patterns.TypePatternQuestions.Question;
-import org.bliz.trivial.service.BlizzardGameService;
+import org.bliz.trivial.controller.model.Question;
+import org.bliz.trivial.service.NewQuestionService;
+import org.bliz.trivial.service.dto.QuestionDTO;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -13,13 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class NewQuestionController {
 
 	@Autowired
-	private BlizzardGameService blizService;
+	private NewQuestionService newQuestionService;
 
 	@Autowired
 	private Mapper mapper;
 
 	@PostMapping("/new-question")
-	public Question save() {
-		return null;
+	public Question save(@RequestBody Question question) {
+		return mapper.map(newQuestionService.save(mapper.map(question, QuestionDTO.class)), Question.class);
 	}
 }

@@ -1,20 +1,19 @@
 import { Category } from "./category";
+import { Answer } from "./answer";
 
 export class Question {
 
-    question: string;
+    questionCode: number;
+    text: string;
     category: Category;
-    correctAnswer: string;
-    wrongAnswer1: string;
-    wrongAnswer2: string;
-    wrongAnswer3: string;
+    answers: Answer[];
+    questionsPerGames: any;
 
-    constructor(question: string, category: Category, correctAnswer: string, wrongAnswer1: string, wrongAnswer2: string, wrongAnswer3: string) {
-        this.question = question;
+    constructor(questionCode: number, text: string, category: Category, answers: Answer[], questionsPerGames: any) {
+        this.questionCode = questionCode;
+        this.text = text;
         this.category = category;
-        this.correctAnswer = correctAnswer;
-        this.wrongAnswer1 = wrongAnswer1;
-        this.wrongAnswer2 = wrongAnswer2;
-        this.wrongAnswer3 = wrongAnswer3;
+        this.answers = answers;
+        this.questionsPerGames = questionsPerGames;
     }
 }
