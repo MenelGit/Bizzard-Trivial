@@ -1,6 +1,10 @@
 <div class="header">
     <img src="./../favicon.png" alt="" class="small-image ml-1 mt-1">
-    <p class="self-center">USUARIO</p>
+    <!-- <button class="self-center">USUARIO</button> -->
+    <button class="btn btn-primary login-button float-right" (click)="redirect()" [disabled]="identified">
+        <i class="fa fa-male" aria-hidden="true"></i>
+        <span>Login</span>
+      </button>
 </div>
 <hr>
 <router-outlet></router-outlet>

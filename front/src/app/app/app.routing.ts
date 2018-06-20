@@ -6,6 +6,7 @@ import { RankingComponent } from '../ranking/ranking.component';
 import { SocialComponent } from '../social/social.component';
 import { WaitingTurnComponent } from '../waitingturn/waitingturn.component';
 import { QuestionComponent } from '../question/question.component';
+import { LoginComponent } from '../login/login.component';
 
 const appRoutes: Routes = [
 	{ path: '', redirectTo: 'menu', pathMatch: 'full' },
@@ -15,7 +16,8 @@ const appRoutes: Routes = [
 	{ path: 'ranking', component: RankingComponent },
 	{ path: 'social', component: SocialComponent },
 	{ path: 'waitingturn', component: WaitingTurnComponent},
-	{ path: 'question', component: QuestionComponent}
+	{ path: 'question', component: QuestionComponent},
+	{ path: 'login', component: LoginComponent}
 ];
 
 export const routing = RouterModule.forRoot(appRoutes, { useHash: true });

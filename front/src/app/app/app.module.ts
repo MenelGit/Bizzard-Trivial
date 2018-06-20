@@ -11,6 +11,7 @@ import { SocialComponent } from '../social/social.component';
 import { WaitingTurnComponent } from '../waitingturn/waitingturn.component'
 import { QuestionComponent } from '../question/question.component';
 import { HttpModule } from '@angular/http';
+import { LoginComponent } from '../login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpModule } from '@angular/http';
     RankingComponent,
     SocialComponent,
     WaitingTurnComponent,
-    QuestionComponent
+    QuestionComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

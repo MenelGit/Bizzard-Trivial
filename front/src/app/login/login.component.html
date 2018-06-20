@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div [hidden]='responseMessage==null'>
+      <div [hidden]="isErrorMsg" class="alert alert-success success_box">
+        <span>{{ responseMessage }}</span>
+        <button type="button" class="close" (click)="handleResponseMsgUpdated($event)">&times;</button>
+      </div>
+      <div [hidden]="!isErrorMsg" class="alert alert-danger error_box">
+        <span>{{ responseMessage }}</span>
+        <button type="button" class="close" (click)="handleResponseMsgUpdated($event)">&times;</button>
+      </div>
+    </div>
+  </div>
+  <div class="container login-title">
+    <h1>Iniciar sesión</h1>
+  </div>
+  <div class="container">
+    <form [formGroup]="questionForm">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="correct">User</label>
+          <input type="text" class="form-control" id="correct" placeholder="User" [formControl]="questionForm.controls['correct']"
+            [(ngModel)]="question.correctAnswer">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="wrong1">Password</label>
+          <input type="text" class="form-control" id="wrong1" placeholder="Password" [formControl]="questionForm.controls['wrong1']"
+            [(ngModel)]="question.wrongAnswer1">
+        </div>
+      </div>
+    </form>
+    <button class="btn btn-primary question-button float-right" (click)="submit()" [disabled]="!questionForm.valid">
+      <i class="fa fa-check" aria-hidden="true"></i>
+      <span>Aceptar</span>
+    </button>
+    <button class="btn btn-primary question-button float-left" (click)="return()">
+      <i class="fa fa-chevron-left" aria-hidden="true"></i>
+      <span>Volver al menú</span>
+    </button>
+  </div>
+  
