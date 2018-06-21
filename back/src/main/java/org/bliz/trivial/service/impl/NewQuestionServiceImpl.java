@@ -32,10 +32,9 @@ public class NewQuestionServiceImpl implements NewQuestionService {
 				answerToSave.setQuestion(questionSaved);
 				answerRepository.save(answerToSave);
 			});
-
 			return mapper.map(questionSaved, QuestionDTO.class);
 		} catch(Exception e) {
-			throw new CustomTrivialException("Ha ocurrido un error inesperado");
+			throw new CustomTrivialException("Oh! What a disaster, tomatoe!");
 		}
 	}
 

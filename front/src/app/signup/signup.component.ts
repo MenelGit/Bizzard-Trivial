@@ -3,11 +3,12 @@ import { Router } from '@angular/router';
 import { importType } from '@angular/compiler/src/output/output_ast';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../models/user'
+import { UserService } from '../services/user.service';
 
 @Component({
     selector: 'signup',
     templateUrl: './signup.component.html',
-    providers: [],
+    providers: [UserService],
     styleUrls: ['./signup.component.css']
 })
 
@@ -18,7 +19,7 @@ export class SignupComponent {
     isErrorMsg: boolean = false;
     user: User;
 
-    constructor(private router: Router,) {
+    constructor(private router: Router, private userService: UserService) {
         
     }
 
@@ -39,12 +40,11 @@ export class SignupComponent {
     }
 
     submit(){
-        this.user.username = this.signupForm.value.username;
-        this.user.password = this.signupForm.value.pass;
-        // this.questionService.create(this.question).then((res) => {
-        //     this.responseMessage = "Pregunta creada con éxito";
-        // }).catch((error) => {
-        //     this.responseMessage = error;
-        // });
+        this.userService.register(this.user).then((res) => {
+            this.router.navigate(['/menu']);
+        }).catch((error) => {
+            this.responseMessage = error;
+            this.isErrorMsg = true;
+        });
     }
 }

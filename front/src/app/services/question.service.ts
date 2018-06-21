@@ -13,7 +13,6 @@ export class QuestionService extends BaseService {
     create(question: Question): any {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let body = JSON.stringify(question);
-        console.log(body);
         return this.http.post("http://localhost:37000/new-question", body, { headers: headers })
             .toPromise()
             .then((res) => { return this.extractData(res);})

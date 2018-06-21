@@ -7,15 +7,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = 'app';
   identified: boolean = false;
 
   constructor(private router: Router) {
-        
+
   }
 
-  redirect(){    
-    this.router.navigate(['/login']);    
-}
+  redirect() {
+    this.router.navigate(['/login']);
+  }
 
 }

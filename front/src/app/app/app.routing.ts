@@ -7,6 +7,7 @@ import { SocialComponent } from '../social/social.component';
 import { WaitingTurnComponent } from '../waitingturn/waitingturn.component';
 import { QuestionComponent } from '../question/question.component';
 import { LoginComponent } from '../login/login.component';
+import { SignupComponent } from '../signup/signup.component';
 
 const appRoutes: Routes = [
 	{ path: '', redirectTo: 'menu', pathMatch: 'full' },
@@ -17,7 +18,8 @@ const appRoutes: Routes = [
 	{ path: 'social', component: SocialComponent },
 	{ path: 'waitingturn', component: WaitingTurnComponent},
 	{ path: 'question', component: QuestionComponent},
-	{ path: 'login', component: LoginComponent}
+	{ path: 'login', component: LoginComponent},
+	{ path: 'signup', component: SignupComponent}
 ];
 
 export const routing = RouterModule.forRoot(appRoutes, { useHash: true });

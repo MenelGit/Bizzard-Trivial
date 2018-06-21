@@ -8,14 +8,4 @@ import { Router } from "@angular/router";
 
 export class MainComponent {
 
-    constructor(private router:Router){}
-
-    ngOnInit() {
-        console.log("main");
-    }
-
-    caca(event:any)
-    {
-        this.router.navigate(['/menu']);
-    }
 }

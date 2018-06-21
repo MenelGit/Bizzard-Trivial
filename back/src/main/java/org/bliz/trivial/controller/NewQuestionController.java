@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins="*")
+@CrossOrigin(origins = "*")
 public class NewQuestionController {
 
 	@Autowired
@@ -22,6 +22,6 @@ public class NewQuestionController {
 
 	@PostMapping("/new-question")
 	public Question save(@RequestBody Question question) {
-		return mapper.map(newQuestionService.save(mapper.map(question, QuestionDTO.class)), Question.class);
+		return mapper.map(newQuestionService.save(mapper.map(question, QuestionDTO.class)), Question.class); // Model -> DTO -> Model -> Y pal front
 	}
 }
