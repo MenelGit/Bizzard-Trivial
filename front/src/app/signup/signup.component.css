@@ -1,0 +1,19 @@
+.signup-title {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.ng-valid[required],
+.ng-valid.required {
+	border-left: 5px solid blue3;
+}
+
+.ng-invalid:not(form) {
+	border-left: 5px solid #a94442;
+}
+
+.ng-invalid:focus {
+	border: 1px solid green;
+	border-left: 5px solid green;
+}

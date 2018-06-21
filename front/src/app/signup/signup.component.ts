@@ -5,15 +5,15 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { User } from '../models/user'
 
 @Component({
-    selector: 'login',
-    templateUrl: './login.component.html',
+    selector: 'signup',
+    templateUrl: './signup.component.html',
     providers: [],
-    styleUrls: ['./login.component.css']
+    styleUrls: ['./signup.component.css']
 })
 
-export class LoginComponent {
+export class SignupComponent {
 
-    loginForm: FormGroup;
+    signupForm: FormGroup;
     responseMessage: string = null;
     isErrorMsg: boolean = false;
     user: User;
@@ -24,7 +24,7 @@ export class LoginComponent {
 
     ngOnInit() {
         this.newUser()
-        this.loginForm = new FormGroup({
+        this.signupForm = new FormGroup({
             user: new FormControl('', [Validators.required]),
             pass: new FormControl('', [Validators.required]),
         });
@@ -39,8 +39,8 @@ export class LoginComponent {
     }
 
     submit(){
-        this.user.username = this.loginForm.value.username;
-        this.user.password = this.loginForm.value.pass;
+        this.user.username = this.signupForm.value.username;
+        this.user.password = this.signupForm.value.pass;
         // this.questionService.create(this.question).then((res) => {
         //     this.responseMessage = "Pregunta creada con éxito";
         // }).catch((error) => {

@@ -10,7 +10,9 @@ export class AppComponent {
   title = 'app';
   identified: boolean = false;
 
-  private router: Router
+  constructor(private router: Router) {
+        
+  }
 
   redirect(){    
     this.router.navigate(['/login']);    
