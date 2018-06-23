@@ -36,24 +36,24 @@ public class GameEntity implements Serializable {
 	@Column(name="game_code")
 	private Integer gameCode;
 
-	@Column(name="current_user")
-	private Integer currentUser;
+	@Column(name="current_player")
+	private Integer current_player;
 
 	@ManyToOne
 	@JoinColumn(name="cod_winner")
-	private UserEntity user1;
+	private UserEntity winnerUser;
 
 	@ManyToOne
 	@JoinColumn(name="cod_loser")
-	private UserEntity user2;
+	private UserEntity loserUser;
 
 	@ManyToOne
 	@JoinColumn(name="cod_user_1")
-	private UserEntity user3;
+	private UserEntity playerOne;
 
 	@ManyToOne
 	@JoinColumn(name="cod_user_2")
-	private UserEntity user4;
+	private UserEntity playerTwo;
 
 	@OneToMany(mappedBy="game")
 	private List<QuestionsPerGameEntity> questionsPerGames;

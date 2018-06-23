@@ -16,15 +16,15 @@ public class Game implements Serializable {
 
 	private Integer gameCode;
 
-	private Integer currentUser;
+	private Integer current_player;
 
-	private User user1;
+	private User winnerUser;
 
-	private User user2;
+	private User loserUser;
 
-	private User user3;
+	private User playerOne;
 
-	private User user4;
+	private User playerTwo;
 
-//	private List<QuestionsPerGame> questionsPerGames;
+	private List<QuestionsPerGame> questionsPerGames;
 }

@@ -1,8 +1,5 @@
 package org.bliz.trivial.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.bliz.trivial.controller.model.Game;
 import org.bliz.trivial.service.NewGameService;
 import org.bliz.trivial.service.dto.GameDTO;
@@ -16,12 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @CrossOrigin(origins="*")
 public class NewGameController {
+
 	@Autowired
 	private NewGameService newGameService;
 
 	@Autowired
 	private Mapper mapper;
-	
+
 	@PostMapping("/new-game")
 	public Game save(@RequestBody Game game) {
 		return mapper.map(newGameService.save(mapper.map(game, GameDTO.class)), Game.class); // Model -> DTO -> Model -> Y pal front
