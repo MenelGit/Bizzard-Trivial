@@ -4,20 +4,20 @@ import { QuestionsPerGame } from "./questionsPerGame";
 export class Game {
 
     gameCode: number;
-    currentUser: number;
-    user1: User;
-    user2: User;
-    user3: User;
-    user4: User;
+    current_player: number;
+    winnerUser: User;
+    loserUser: User;
+    playerOne: User;
+    playerTwo: User;
     questionsPerGames: QuestionsPerGame[];
 
-    constructor(gameCode: number, currentUser: number, user1: User, user2: User, user3: User, user4: User, questionsPerGames: QuestionsPerGame[]) {
+    constructor(gameCode: number, current_player: number, winnerUser: User, loserUser: User, playerOne: User, playerTwo: User, questionsPerGames: QuestionsPerGame[]) {
         this.gameCode = gameCode;
-        this.currentUser = this.currentUser;
-        this.user1 = user1;
-        this.user2 = user2;
-        this.user3 = user3;
-        this.user4 = user4;
+        this.current_player = current_player;
+        this.winnerUser = winnerUser;
+        this.loserUser = loserUser;
+        this.playerOne = playerOne;
+        this.playerTwo = playerTwo;
         this.questionsPerGames = questionsPerGames;
     }
 }

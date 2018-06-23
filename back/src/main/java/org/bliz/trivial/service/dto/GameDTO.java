@@ -16,15 +16,15 @@ public class GameDTO implements Serializable {
 
 	private Integer gameCode;
 
-	private Integer currentUser;
+	private Integer current_player;
 
-	private UserDTO user1;
+	private UserDTO winnerUser;
 
-	private UserDTO user2;
+	private UserDTO loserUser;
 
-	private UserDTO user3;
+	private UserDTO playerOne;
 
-	private UserDTO user4;
+	private UserDTO playerTwo;
 
 	private List<QuestionsPerGameDTO> questionsPerGames;
 }

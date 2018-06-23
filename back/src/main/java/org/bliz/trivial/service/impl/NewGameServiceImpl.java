@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class NewGameServiceImpl implements NewGameService{
 
-		
+
 	@Autowired
 	private NewGameRepository newGameRepository;
 
@@ -23,7 +23,6 @@ public class NewGameServiceImpl implements NewGameService{
 	public GameDTO save(GameDTO game) {
 		try {
 			GameEntity gameSaved = newGameRepository.save(mapper.map(game, GameEntity.class));
-			
 			return mapper.map(gameSaved, GameDTO.class);
 		} catch(Exception e) {
 			throw new CustomTrivialException("Oh! What a disaster, tomatoe!");
