@@ -26,5 +26,5 @@ public class Game implements Serializable {
 
 	private User user4;
 
-	private List<QuestionsPerGame> questionsPerGames;
+//	private List<QuestionsPerGame> questionsPerGames;
 }

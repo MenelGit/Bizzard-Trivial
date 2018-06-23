@@ -15,7 +15,11 @@ export class AppComponent {
 
   }
 
-  redirect() {
+  toSignUp(){
+    this.router.navigate(['/signup']);
+  }
+
+  toLogin(){
     this.router.navigate(['/login']);
   }
 

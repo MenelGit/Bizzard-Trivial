@@ -10,25 +10,20 @@
       </div>
     </div>
   </div>
-  <div class="container signup-title">
-    <h1>Registro</h1>
+  <div class="container opponent-title">
+    <h1>Select opponent</h1>
   </div>
   <div class="container">
-    <form [formGroup]="signupForm">
+    <form [formGroup]="opponentForm">
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="user">User</label>
-          <input type="text" class="form-control" id="username" placeholder="User" [formControl]="signupForm.controls['user']"
-            [(ngModel)]="user.username">
-        </div>
-        <div class="form-group col-md-6">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" id="password" placeholder="Password" [formControl]="signupForm.controls['pass']"
-            [(ngModel)]="user.password">
+          <label for="user">Opponent</label>
+          <input type="text" class="form-control" id="username" placeholder="Opponent" [formControl]="opponentForm.controls['user']"
+            >
         </div>
       </div>
     </form>
-    <button class="btn btn-primary question-button float-right" (click)="submit()" [disabled]="!signupForm.valid">
+    <button class="btn btn-primary question-button float-right" (click)="submit()" [disabled]="!opponentForm.valid">
       <i class="fa fa-check" aria-hidden="true"></i>
       <span>Aceptar</span>
     </button>

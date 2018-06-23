@@ -13,6 +13,7 @@ import { QuestionComponent } from '../question/question.component';
 import { HttpModule } from '@angular/http';
 import { LoginComponent } from '../login/login.component';
 import { SignupComponent } from '../signup/signup.component';
+import { OpponentComponent } from '../opponent/opponent.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SignupComponent } from '../signup/signup.component';
     WaitingTurnComponent,
     QuestionComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    OpponentComponent
   ],
   imports: [
     BrowserModule,

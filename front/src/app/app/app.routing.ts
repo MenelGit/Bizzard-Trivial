@@ -8,6 +8,7 @@ import { WaitingTurnComponent } from '../waitingturn/waitingturn.component';
 import { QuestionComponent } from '../question/question.component';
 import { LoginComponent } from '../login/login.component';
 import { SignupComponent } from '../signup/signup.component';
+import { OpponentComponent } from '../opponent/opponent.component';
 
 const appRoutes: Routes = [
 	{ path: '', redirectTo: 'menu', pathMatch: 'full' },
@@ -19,7 +20,8 @@ const appRoutes: Routes = [
 	{ path: 'waitingturn', component: WaitingTurnComponent},
 	{ path: 'question', component: QuestionComponent},
 	{ path: 'login', component: LoginComponent},
-	{ path: 'signup', component: SignupComponent}
+	{ path: 'signup', component: SignupComponent},
+	{ path: 'opponent', component: OpponentComponent}
 ];
 
 export const routing = RouterModule.forRoot(appRoutes, { useHash: true });

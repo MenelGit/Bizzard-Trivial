@@ -1,7 +1,11 @@
 <div class="header">
     <img src="./../favicon.png" alt="" class="small-image ml-1 mt-1">
     <!-- <button class="self-center">USUARIO</button> -->
-    <button class="btn btn-primary login-button float-right" (click)="redirect()" [disabled]="identified">
+    <button class="btn btn-primary login-button float-right" (click)="toSignUp()" [disabled]="identified">
+        <i class="fa fa-male" aria-hidden="true"></i>
+        <span>SignUp</span>
+      </button>
+    <button class="btn btn-primary login-button float-right" (click)="toLogin()" [disabled]="identified">
         <i class="fa fa-male" aria-hidden="true"></i>
         <span>Login</span>
       </button>

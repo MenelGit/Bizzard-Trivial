@@ -24,3 +24,5 @@ public class BlizzardTrivialApplication {
 		return new DozerBeanMapper(configFiles);
 	}
 }
+
+//Cada entity tiene un repositorio que las maneja, un service que maneja los repos y un controller que maneja las conversaciones entre esos services y el front.

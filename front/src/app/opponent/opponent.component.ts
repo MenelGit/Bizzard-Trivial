@@ -6,15 +6,15 @@ import { User } from '../models/user'
 import { UserService } from '../services/user.service';
 
 @Component({
-    selector: 'signup',
-    templateUrl: './signup.component.html',
+    selector: 'opponent',
+    templateUrl: './opponent.component.html',
     providers: [UserService],
-    styleUrls: ['./signup.component.css']
+    styleUrls: ['./opponent.component.css']
 })
 
-export class SignupComponent {
+export class OpponentComponent {
 
-    signupForm: FormGroup;
+    opponentForm: FormGroup;
     responseMessage: string = null;
     isErrorMsg: boolean = false;
     user: User;
@@ -25,7 +25,7 @@ export class SignupComponent {
 
     ngOnInit() {
         this.newUser()
-        this.signupForm = new FormGroup({
+        this.opponentForm = new FormGroup({
             user: new FormControl('', [Validators.required]),
             pass: new FormControl('', [Validators.required]),
         });
@@ -40,9 +40,8 @@ export class SignupComponent {
     }
 
     submit(){
-        this.userService.register(this.user).then((res) => {
-            this.responseMessage = "User created"
-            this.isErrorMsg = false
+        this.userService.login(this.user).then((res) => {
+            this.router.navigate(['/menu']);
         }).catch((error) => {
             this.responseMessage = error;
             this.isErrorMsg = true;
