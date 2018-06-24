@@ -49,4 +49,9 @@ public class QuestionEntity implements Serializable {
 	@OneToMany(mappedBy="question")
 	private List<QuestionsPerGameEntity> questionsPerGames;
 
+//	queryMethods
+//	set = list sin repetidos. set = new hashSet.
+//	findByQuestionsPerGamesIsCorrectAndgame(integer isCorrect, integer game) en el repositorio de question. Mirar categoría por cada una que encuentre y apuntarlo (en NewQuestionRepository),
+//	queda algo como List<Question> findByQuestionsPerGamesIsCorrectAndGame(Integer isCorrect, Integer gameCode);  Ejemplo UserRepository.
+//	Guardar el id de la partida al crearla. Si es la primera pregunta de la partida coger una random de todas las preguntas (element.at) findOne math.random.
 }

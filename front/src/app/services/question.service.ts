@@ -18,4 +18,12 @@ export class QuestionService extends BaseService {
             .then((res) => { return this.extractData(res);})
             .catch((error) => { return Promise.reject(this.handleError(error))});
     }
+
+    getAll(): any{
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        return this.http.post("http://localhost:37000/getAll", { headers: headers })
+            .toPromise()
+            .then((res) => { return this.extractData(res);})
+            .catch((error) => { return Promise.reject(this.handleError(error))});
+    }
 }
