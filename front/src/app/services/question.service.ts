@@ -19,9 +19,17 @@ export class QuestionService extends BaseService {
             .catch((error) => { return Promise.reject(this.handleError(error))});
     }
 
-    getAll(): any{
+    findFirst(userCode: number): any{
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        return this.http.post("http://localhost:37000/getAll", { headers: headers })
+        return this.http.get("http://localhost:37000/questions?userCode=" + userCode, { headers: headers })
+            .toPromise()
+            .then((res) => { return this.extractData(res);})
+            .catch((error) => { return Promise.reject(this.handleError(error))});
+    }
+
+    findNext(gameCode: number, userCode: number): any{
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        return this.http.get("http://localhost:37000/next-question?gameCode=" + gameCode + "&userCode=" + userCode, { headers: headers })
             .toPromise()
             .then((res) => { return this.extractData(res);})
             .catch((error) => { return Promise.reject(this.handleError(error))});

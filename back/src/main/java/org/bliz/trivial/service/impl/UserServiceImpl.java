@@ -1,7 +1,14 @@
 package org.bliz.trivial.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.bliz.trivial.controller.model.Ranking;
+import org.bliz.trivial.controller.model.User;
 import org.bliz.trivial.exception.CustomTrivialException;
+import org.bliz.trivial.repository.NewGameRepository;
 import org.bliz.trivial.repository.UserRepository;
+import org.bliz.trivial.repository.entity.GameEntity;
 import org.bliz.trivial.repository.entity.UserEntity;
 import org.bliz.trivial.service.UserService;
 import org.bliz.trivial.service.dto.UserDTO;
@@ -14,6 +21,9 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserRepository userRepository;
+
+	@Autowired
+	private NewGameRepository gameRepository;
 
 	@Autowired
 	private Mapper mapper;
@@ -40,6 +50,24 @@ public class UserServiceImpl implements UserService {
 		} else {
 			throw new CustomTrivialException("User already exists");
 		}
+	}
+
+	@Override
+	public List<Ranking> getRanking() {
+		Iterable<Object[]> games = gameRepository.getRanking();
+		List<Ranking> rankings = new ArrayList<>();
+		Ranking ranking;
+		for (Object[] result : games) {
+			ranking = new Ranking();
+			GameEntity game = (GameEntity) result[0];
+			Long count = (Long) result[1];
+			UserDTO dto = mapper.map(game.getWinnerUser(), UserDTO.class);
+			ranking.setUser(mapper.map(dto, User.class));
+			ranking.setCount(count);
+			rankings.add(ranking);
+
+		}
+		return rankings;
 	}
 
 }

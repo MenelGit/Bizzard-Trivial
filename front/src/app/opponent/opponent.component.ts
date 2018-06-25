@@ -8,7 +8,7 @@ import { UserService } from '../services/user.service';
 @Component({
     selector: 'opponent',
     templateUrl: './opponent.component.html',
-    providers: [UserService],
+    providers: [],
     styleUrls: ['./opponent.component.css']
 })
 

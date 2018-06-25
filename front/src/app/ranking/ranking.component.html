@@ -3,9 +3,10 @@
 </div>
 <div>
     <ul class= "rank_list">
-        <li *ngFor="let player of loadRanking()">
-          <a href="">{{ player.name }} --
-          {{ player.score }}</a>
+        <li *ngFor="let player of ranking">
+          <span>{{ player.user.username }} -- {{ player.count }}</span>
+           <!-- <a href="">{{ player.name }} --
+          {{ player.score }}</a> -->
         </li>
     </ul> 
 </div>

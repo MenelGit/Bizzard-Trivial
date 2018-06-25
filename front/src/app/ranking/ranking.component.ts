@@ -4,30 +4,33 @@ import { Category } from '../models/category';
 import { CategoryService } from '../services/category.service';
 import { importType } from '@angular/compiler/src/output/output_ast';
 import { Player } from '../models/player';
+import { UserService } from '../services/user.service';
 
 @Component({
     selector: 'ranking',
     templateUrl: './ranking.component.html',
-    providers: [CategoryService],
+    providers: [UserService],
     styleUrls: ['./ranking.component.css']
 })
 
 export class RankingComponent {
 
-    constructor(private router: Router, private categoryService: CategoryService) {
+    ranking: any;
+
+    constructor(private router: Router, private userService: UserService) {
         
     }
 
     ngOnInit() {
-        
+        this.userService.getRanking().then((res) => {
+            console.log(res);
+            this.ranking = res;
+        }).catch((error) => {
+        });
     }
 
     loadRanking() {
-        let players = [
-            new Player('Player1', '100'),
-            new Player('Player2', '50')
-          ];
-        return players;
+        
     }
 
     return() {

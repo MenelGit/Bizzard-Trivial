@@ -14,6 +14,8 @@ import { HttpModule } from '@angular/http';
 import { LoginComponent } from '../login/login.component';
 import { SignupComponent } from '../signup/signup.component';
 import { OpponentComponent } from '../opponent/opponent.component';
+import { CommunicationService } from '../services/communication.service';
+import { UserService } from '../services/user.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,7 @@ import { OpponentComponent } from '../opponent/opponent.component';
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [CommunicationService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

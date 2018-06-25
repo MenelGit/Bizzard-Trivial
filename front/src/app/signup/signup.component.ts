@@ -8,7 +8,7 @@ import { UserService } from '../services/user.service';
 @Component({
     selector: 'signup',
     templateUrl: './signup.component.html',
-    providers: [UserService],
+    providers: [],
     styleUrls: ['./signup.component.css']
 })
 

@@ -4,11 +4,12 @@ import { importType } from '@angular/compiler/src/output/output_ast';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../models/user'
 import { UserService } from '../services/user.service';
+import { CommunicationService } from '../services/communication.service';
 
 @Component({
     selector: 'login',
     templateUrl: './login.component.html',
-    providers: [UserService],
+    providers: [],
     styleUrls: ['./login.component.css']
 })
 
@@ -19,7 +20,7 @@ export class LoginComponent {
     isErrorMsg: boolean = false;
     user: User;
 
-    constructor(private router: Router, private userService: UserService) {
+    constructor(private router: Router, private userService: UserService, private comService: CommunicationService) {
         
     }
 
@@ -27,7 +28,7 @@ export class LoginComponent {
         this.newUser()
         this.loginForm = new FormGroup({
             user: new FormControl('', [Validators.required]),
-            pass: new FormControl('', [Validators.required]),
+            pass: new FormControl('', [Validators.required])
         });
     }
 
@@ -41,6 +42,8 @@ export class LoginComponent {
 
     submit(){
         this.userService.login(this.user).then((res) => {
+            this.user = res;
+            this.comService.emit({user: this.user});
             this.router.navigate(['/menu']);
         }).catch((error) => {
             this.responseMessage = error;

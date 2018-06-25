@@ -15,4 +15,54 @@
 			<b>questionsPerGames</b>
 		</field-exclude>
 	</mapping>
+	
+	<mapping type="one-way">
+		<class-a>org.bliz.trivial.repository.entity.QuestionEntity</class-a>
+		<class-b>org.bliz.trivial.service.dto.QuestionDTO</class-b>
+		<field-exclude>
+			<a>answers</a>
+			<b>answers</b>
+		</field-exclude>
+		<field-exclude>
+			<a>questionsPerGames</a>
+			<b>questionsPerGames</b>
+		</field-exclude>
+	</mapping>
+	
+	<mapping>
+		<class-a>org.bliz.trivial.repository.entity.AnswerEntity</class-a>
+		<class-b>org.bliz.trivial.service.dto.AnswerDTO</class-b>
+		<field-exclude>
+			<a>question</a>
+			<b>question</b>
+		</field-exclude>
+	</mapping>
+	
+	<mapping>
+		<class-a>org.bliz.trivial.repository.entity.GameEntity</class-a>
+		<class-b>org.bliz.trivial.service.dto.GameDTO</class-b>
+		<field-exclude>
+			<a>questionsPerGames</a>
+			<b>questionsPerGames</b>
+		</field-exclude>
+	</mapping>
+	
+	<mapping type="one-way">
+		<class-a>org.bliz.trivial.service.dto.QuestionDTO</class-a>
+		<class-b>org.bliz.trivial.controller.model.Question</class-b>
+		<field-exclude>
+			<a>answers</a>
+			<b>answers</b>
+		</field-exclude>
+	</mapping>
+	
+	<mapping>
+		<class-a>org.bliz.trivial.service.dto.AnswerDTO</class-a>
+		<class-b>org.bliz.trivial.controller.model.Answer</class-b>
+		<field-exclude>
+			<a>question</a>
+			<b>question</b>
+		</field-exclude>
+	</mapping>
+	
 </mappings>

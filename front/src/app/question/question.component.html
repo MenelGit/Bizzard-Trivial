@@ -1,12 +1,30 @@
-<div class="container question-title" id="title">
-    <h1>Question Title</h1>       
+<div class="container-fluid">
+    <div [hidden]='responseMessage==null'>
+        <div [hidden]="isErrorMsg" class="alert alert-success success_box">
+            <span>{{ responseMessage }}</span>
+            <button type="button" class="close" (click)="handleResponseMsgUpdated($event)">&times;</button>
+        </div>
+        <div [hidden]="!isErrorMsg" class="alert alert-danger error_box">
+            <span>{{ responseMessage }}</span>
+            <button type="button" class="close" (click)="handleResponseMsgUpdated($event)">&times;</button>
+        </div>
+    </div>
 </div>
 <div>
+    <h1 id="title" class="question-title">Question Title</h1>
     <ul>
-        <li><button (click)="selectFirst()" id="one">Opción 1</button></li>
-        <li><button (click)="selectSecond()" id="two">Opción 2</button></li>
-        <li><button (click)="selectThird()" id="three">Opción 3</button></li>
-        <li><button (click)="selectFourth()" id="four">Opción 4</button></li>        
+        <li>
+            <input readonly (click)="check(correctAnswer)" type="text" class="form-control" id="one" [(ngModel)]="correctAnswer.text">
+        </li>
+        <li>
+            <input readonly (click)="check(wrong1)" type="text" class="form-control" id="two" [(ngModel)]="wrong1.text">
+        </li>
+        <li>
+            <input readonly (click)="check(wrong2)" type="text" class="form-control" id="three" [(ngModel)]="wrong2.text">
+        </li>
+        <li>
+            <input readonly (click)="check(wrong3)" type="text" class="form-control" id="four" [(ngModel)]="wrong3.text">
+        </li>
     </ul>
 </div>
 <button class="btn btn-primary question-button float-left" (click)="return()">
